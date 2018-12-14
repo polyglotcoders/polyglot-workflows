@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lab 2 - Polyglot Workflows 101</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover"">
+    <meta name="description" content="A guided tour that walks through the fundamentals of Git">
+    <meta name="theme-color" content="#0000ff">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" media="screen" href="reset.css">
+    <link rel="stylesheet" media="screen" href="screen.css">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1142510-7']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript" src="UI.js"></script>
+  </head>
+
+  <body data-lab-id="2">
+    <a href="#content" tabindex="1" class="skip-to-content">
+      Skip to content
+    </a>
+
+    <div class="layout">
+      <div id="index">
+        <p class="link-home">
+          <a href="index.html"><span>Polyglot Workflows 101</span></a>
+        </p>
+        <button class="link-menu">Menu</button>
+        <nav tabindex="0">
+          <ol>
+              <li id="lab_1_link"><a href="lab_01.html">Setup Laptop</a></li>
+  <li id="lab_2_link"><a href="lab_02.html">Setup your bash profile</a></li>
+  <li id="lab_3_link"><a href="lab_03.html">All about the command line</a></li>
+  <li id="lab_4_link"><a href="lab_04.html">Learn some basic command line commands</a></li>
+  <li id="lab_5_link"><a href="lab_05.html">Signup for Slack and Slack Etiquette</a></li>
+  <li id="lab_6_link"><a href="lab_06.html">Setup Git Locally</a></li>
+  <li id="lab_7_link"><a href="lab_07.html">Signup for Github, Fork Repo, and Polyglot workflow</a></li>
+
+          </ol>
+        </nav>
+      </div>
+
+      <div id="content" tabindex="-1">
+        <h1 class="lab_title"><em>lab 2</em>  Setup your bash profile</h1>
+<h2>Goals</h2>
+<ul>
+	<li>Create a bash profile / modify it if it exists</li>
+	<li>We do this section so we can have a prettified version of iterm2</li>
+</ul>
+<h2>What is a bash profile?</h2>
+<p>Where environment settings are stored. When a new iterm2 session starts, it will load the contents of the bash profile before executing commands.</p>
+<h2>Open up <code>~/.bash_profile</code></h2>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">sublime ~/.bash_profile</pre>
+<p>This should have opened up sublime text for you</p>
+<h2>Copy paste this into the text editor and save</h2>
+<h3 class="file-heading"><em>.bash_profile</em></h3>
+<pre class="file">export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+export EDITOR=vim
+export LC_ALL="en_US.UTF-8"
+export LANG=en_US.UTF-8
+
+RESET="\[\033[0m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[01;32m\]"
+BLUE="\[\033[01;34m\]"
+YELLOW="\[\033[0;33m\]"
+CYAN="\[\033[0;36m\]"
+MAGEN="\[\033[1;35m\]"
+
+
+PS_LINE=`printf -- '- %.0s' {1..200}`
+function parse_git_branch {
+  PS_BRANCH=''
+    PS_FILL=${PS_LINE:0:$COLUMNS}
+      if [ -d .svn ]; then
+            PS_BRANCH="(svn r$(svn info|awk '/Revision/{print $2}'))"
+                return
+                  elif [ -f _FOSSIL_ -o -f .fslckout ]; then
+                        PS_BRANCH="(fossil $(fossil status|awk '/tags/{print $2}')) "
+                            return
+                              fi
+                                ref=$(git symbolic-ref HEAD 2&gt; /dev/null) || return
+                                  PS_BRANCH="(git ${ref#refs/heads/}) "
+                                }
+                                PROMPT_COMMAND=parse_git_branch
+                                PS_INFO="$CYAN\u$RESET: $YELLOW\w"
+                                PS_GIT="$GREEN\$PS_BRANCH"
+                                PS_TIME="$RED[\t]"
+                                PS_PROMPT="$MAGEN →"
+                                export PS1="\[\n\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${PS_PROMPT} "
+
+</pre>
+<h2>Reload the file</h2>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">source ~/.bash_profile</pre>
+        <nav class="foot-navigation">
+      <a href="lab_01.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Previous
+    </a>
+  
+      <a href="lab_03.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Next
+    </a>
+  </nav>
+
+      </div>
+    </div>
+  </body>
+</html>

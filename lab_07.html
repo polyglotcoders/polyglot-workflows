@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lab 7 - Polyglot Workflows 101</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover"">
+    <meta name="description" content="A guided tour that walks through the fundamentals of Git">
+    <meta name="theme-color" content="#0000ff">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" media="screen" href="reset.css">
+    <link rel="stylesheet" media="screen" href="screen.css">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1142510-7']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript" src="UI.js"></script>
+  </head>
+
+  <body data-lab-id="7">
+    <a href="#content" tabindex="1" class="skip-to-content">
+      Skip to content
+    </a>
+
+    <div class="layout">
+      <div id="index">
+        <p class="link-home">
+          <a href="index.html"><span>Polyglot Workflows 101</span></a>
+        </p>
+        <button class="link-menu">Menu</button>
+        <nav tabindex="0">
+          <ol>
+              <li id="lab_1_link"><a href="lab_01.html">Setup Laptop</a></li>
+  <li id="lab_2_link"><a href="lab_02.html">Setup your bash profile</a></li>
+  <li id="lab_3_link"><a href="lab_03.html">All about the command line</a></li>
+  <li id="lab_4_link"><a href="lab_04.html">Learn some basic command line commands</a></li>
+  <li id="lab_5_link"><a href="lab_05.html">Signup for Slack and Slack Etiquette</a></li>
+  <li id="lab_6_link"><a href="lab_06.html">Setup Git Locally</a></li>
+  <li id="lab_7_link"><a href="lab_07.html">Signup for Github, Fork Repo, and Polyglot workflow</a></li>
+
+          </ol>
+        </nav>
+      </div>
+
+      <div id="content" tabindex="-1">
+        <h1 class="lab_title"><em>lab 7</em>  Signup for Github, Fork Repo, and Polyglot workflow</h1>
+<p>Now that we set up git locally, we want to sign up for a github account online. Github allows you to &#8220;push&#8221; your code up online. To do that, your local project should be a git repo. We&#8217;ll learn more about this in class, but for now, we&#8217;ll be forking a repo, then cloning it locally.</p>
+<h2>Goals</h2>
+<ul>
+	<li>Create a github account, request access to Polyglot&#8217;s repo, and retrieve your own fork</li>
+	<li>Understand what remote refers to</li>
+	<li>Remember what commands you have to run when you make a change and want everybody to see</li>
+	<li>Remember what commands you have to run when you want to get the latest lectures and handouts</li>
+</ul>
+<h3>Definitions</h3>
+<ul>
+	<li>Repository/Repo: a folder containing your project&#8217;s files and folders</li>
+</ul>
+<h2>Go to github.com</h2>
+<ul>
+	<li>Make an account at <a href="https://github.com/">https://github.com/</a></li>
+	<li>Use the email you set up in the last lab</li>
+</ul>
+<h2>Send your github username</h2>
+<ul>
+	<li>Go to the #githubaccounts channel on slack (<a href="https://polyglotcoding.slack.com/messages/CDBQS6YMV/">channel</a>) and send your username to gain access to the repo. You will be notified via email when you receive your invite to the repo.</li>
+</ul>
+<p>It should look like this</p>
+<p><img src="invite-polyglot.png" style="width: 750px;"></img></p>
+<h2>Fork the Repository</h2>
+<p>When we &#8220;fork&#8221; a repo, we make a copy of someone else&#8217;s repo and add it to our own account</p>
+<ul>
+	<li>Go to <a href="https://github.com/polyglotcoders/cohort-1/">https://github.com/polyglotcoders/cohort-1/</a></li>
+	<li>Press <code>Fork</code><br />
+<img src="fork_img.png" style="width: 750px;"></img></li>
+</ul>
+<p>You should have been redirected to a a new url. The repo should now be on your account, rather than Polyglot&#8217;s</p>
+<p><img src="own_repo.png" style="width: 750px;"></img></p>
+<h2>Clone the Repository</h2>
+<p>Cloning a repository to us means we take a repository from the internet and make a copy in our local computer.</p>
+<ul>
+	<li>Press <code>Clone or download</code></li>
+	<li>Press <code>Use HTTPS</code></li>
+	<li>Copy the code<br />
+<img src="clone.png" style="width: 750px;"></img></li>
+</ul>
+<h2>Add a remote &#8220;upstream&#8221;</h2>
+<h3>Definitions</h3>
+<ul>
+	<li>Remote: Think of it as a channel. There are multiple copies of each &#8220;repo&#8221; depending on the owner. For your own, we go to channel/remote &#8220;origin&#8221;. For Polyglot&#8217;s own repo, we&#8217;ll call it &#8220;upstream&#8221;</li>
+</ul>
+<p></br><br />
+<b>Now open up iterm2 (cmd + space then type iterm2)</b></p>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">cd
+mkdir Development
+cd Development
+mkdir polyglot
+cd polyglot
+git clone https://github.com/coderbea/cohort-1.git
+cd cohort-1
+git remote -v
+git remote add upstream https://github.com/polyglotcoders/cohort-1.github
+git remote -v</pre>
+<p><b>Confirm you get something similar to below:</b></p>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command">$ git remote -v </div>
+origin https://github.com/coderbea/cohort-1.git (fetch) <br/>
+origin  https://github.com/coderbea/cohort-1.git (push) <br/>
+<div class="sample_command">$ git remote add upstream https://github.com/polyglotcoders/cohort-1.github </div> <br/>
+<div class="sample_command">$ git remote -v </div> <br/>
+origin  https://github.com/coderbea/cohort-1.git (fetch) <br/>
+origin  https://github.com/coderbea/cohort-1.git (push) <br/>
+upstream  https://github.com/polyglotcoders/cohort-1.github (fetch) <br/>
+upstream  https://github.com/polyglotcoders/cohort-1.github (push) <br/>
+</pre>
+<h2>Make a change</h2>
+<p>Now that you have a clone of your fork of Poylglot&#8217;s &#8220;cohort-1&#8221; repo, make a change!</p>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">mkdir sandbox
+cd sandbox
+pwd
+ls
+sublime hello.py</pre>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command"> $ pwd </div>
+/Users/bea/Development/polyglot/cohort-1
+<div class="sample_command"> $ ls </div>
+handouts    lectures    images    sandbox
+</pre>
+<h3 class="file-heading"><em>hello_world.py</em></h3>
+<pre class="file"># A sublime text window should have opened up. Write anything
+# you want in it! I will put this.
+
+print("Hello World!")
+</pre>
+<p>Now save the file!</p>
+<h2>Check the status of the repo and changes you made</h2>
+<h3>Definitions</h3>
+<ul>
+	<li><b>Staging</b>: A list of changes to get committed. Imagine you&#8217;re packing up stuff in a box.<br />
+Sometimes you take things out, sometimes you put it in. The box is the staging area.</li>
+	<li><b>Commit</b>: A list of changes with a name for the group of changes. You put the lid on the box<br />
+and labeled it &#8220;Ballet stuff&#8221;</li>
+</ul>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git status</pre>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command">$ git status</div>
+<p>On branch master<br />
+nothing to commit, working tree clean<br />
+</pre></p>
+<h2>Add the &#8220;untracked files&#8221; to staging</h2>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git add .
+git status</pre>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command">$ git add .</div>
+<div class="sample_command">$ git status</div>
+<p>On branch master<br />
+nothing to commit, working tree clean<br />
+</pre></p>
+<h2>Commit the changes</h2>
+<p><b>Commit the changes with a message! <span class="caps">AKA</span> &#8220;ballet stuff&#8221;</b></p>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git commit -m "[workflows] add a new helloworld file"</pre>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command">$ git commit -m &#8220;[workflows] add a new helloworld file&#8221;</div>
+<p>On branch master<br />
+nothing to commit, working tree clean<br />
+</pre></p>
+<h2>Push the changes</h2>
+<h3>Definitions</h3>
+<ul>
+	<li><b>Push</b>: Remember when you cloned the repo and added a remote &#8220;upstream&#8221;? Well now<br />
+we&#8217;re going to &#8220;push&#8221; the files to that url on origin! So now your code will be online<br />
+and on github on your own repo.</li>
+</ul>
+<h4>Let&#8217;s look at our remotes</h4>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git remote -v</pre>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command">$ git remote -v</div>
+<p>origin	https://github.com/coderbea/cohort-1.git (fetch)<br />
+origin	https://github.com/coderbea/cohort-1.git (push)<br />
+upstream	https://github.com/polyglotcoders/cohort-1.github (fetch)<br />
+upstream	https://github.com/polyglotcoders/cohort-1.github (push)<br />
+workflows	https://github.com/polyglotcoders/polyglot-workflows.git (fetch)<br />
+workflows	https://github.com/polyglotcoders/polyglot-workflows.git (push)<br />
+</pre></p>
+<p><b>If you copy paste that <span class="caps">URL</span>, without the .git / .github on the end, it&#8217;ll send you directly<br />
+to the either your own (origin) fork of polyglot&#8217;s repo, or polyglot&#8217;s (upstream) repo.</b></p>
+<p><b>Make sure you push to origin always! You only pull from upstream, but you push all your<br />
+changes to origin</b></p>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git push origin master</pre>
+<h3><b>Output:</b></h3>
+<pre class="sample">
+<div class="sample_command"> $ git push origin master </div>
+To https://github.com/coderbea/cohort-1.git
+
+   02c27bb..be543f1  master → master
+</pre>
+<h2>Take a look at your change online!</h2>
+<p>Remember, pushing to origin means we push it to the url listed on git remote -v for origin. Go to that <span class="caps">URL</span>, which is just your fork of the repo</p>
+<video width="960" height="720" autoplay controls controlsList="nofullscreen nodownload novolume" >
+  <source type="video/mp4" src="pushed.mp4"></source>
+  <p>Your browser does not support the video element.</p>
+</video>
+<h2>Summary!</h2>
+<p>You&#8217;ll be surprised to learn that our git &#8220;workflow&#8221; and most of the commands we&#8217;ll use will consist of the below.</p>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git pull upstream master  #get the latest code from polyglot's master "branch"
+&lt;fill out handout / make a change&gt;
+git diff  # Optional. See all the changes you made
+git status # Optional. See changes before adding it to "staging"
+git add . # Add all changes to "staging" (like a draft, no saving)
+git status # Optional. Confirm that the changes are staged
+git commit -m "Finished handout 1"  # commit all changes (saying yes, I want to name and log this change to my computer)
+git push origin master  # push changes online to github (I want to save it on the internet!)</pre>
+<p>If we take out all the optional code:</p>
+<h3><b>Execute:</b></h3>
+<pre class="instructions">git pull upstream master # Get all changes from polyglot's offical repo
+&lt;fill out handout / make a change&gt; # Make all changes at "local"
+git add . # Add all changes to "staging"
+git commit -m "Finished handout 1" # Add all changes to "commited"
+git push origin master</pre>
+        <nav class="foot-navigation">
+      <a href="lab_06.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Previous
+    </a>
+  
+  
+    <span></span
+  </nav>
+
+      </div>
+    </div>
+  </body>
+</html>

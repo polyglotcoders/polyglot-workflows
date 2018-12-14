@@ -1,0 +1,8 @@
+{
+  "short_name": "Polyglot Workflows 101",
+  "name": "Polyglot Books - Workflows 101",
+  "background_color": "#ffffff",
+  "theme_color": "#0000ff",
+  "display": "standalone",
+  "start_url": "/"
+}
