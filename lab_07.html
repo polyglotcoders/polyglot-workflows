@@ -102,7 +102,8 @@
 mkdir Development
 cd Development
 mkdir polyglot
-cd polyglot
+cd polyglot</pre>
+<pre class="instructions">
 git clone https://github.com/coderbea/cohort-1.git
 cd cohort-1
 git remote -v
@@ -124,11 +125,11 @@ upstream  https://github.com/polyglotcoders/cohort-1.github (push) <br/>
 <h2>Make a change</h2>
 <p>Now that you have a clone of your fork of Poylglot&#8217;s &#8220;cohort-1&#8221; repo, make a change!</p>
 <h3><b>Execute:</b></h3>
-<pre class="instructions">mkdir sandbox
-cd sandbox
+<pre class="instructions">cd /Users/bea/Development/polyglot-course/books/precourse
+mkdir sandbox
 pwd
 ls
-sublime hello.py</pre>
+sublime sandbox/hello_world.py</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">
 <div class="sample_command"> $ pwd </div>
@@ -136,7 +137,7 @@ sublime hello.py</pre>
 <div class="sample_command"> $ ls </div>
 handouts    lectures    images    sandbox
 </pre>
-<h3 class="file-heading"><em>hello_world.py</em></h3>
+<h3 class="file-heading"><em>sandbox/hello_world.py</em></h3>
 <pre class="file"># A sublime text window should have opened up. Write anything
 # you want in it! I will put this.
 
@@ -157,29 +158,33 @@ and labeled it &#8220;Ballet stuff&#8221;</li>
 <pre class="sample">
 <div class="sample_command">$ git status</div>
 <p>On branch master<br />
-nothing to commit, working tree clean<br />
-</pre></p>
+Changes to be committed:<br />
+  (use &#8220;git reset <span class="caps">HEAD</span> <file>&#8230;&#8221; to unstage)</p>
+<p>new file:   sandbox/hello_world.py</p>
+<p></pre></p>
 <h2>Add the &#8220;untracked files&#8221; to staging</h2>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git add .
 git status</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">
-<div class="sample_command">$ git add .</div>
 <div class="sample_command">$ git status</div>
 <p>On branch master<br />
-nothing to commit, working tree clean<br />
-</pre></p>
+Changes to be committed:<br />
+  (use &#8220;git reset <span class="caps">HEAD</span> <file>&#8230;&#8221; to unstage)</p>
+<p>new file:   sandbox/hello_world.py</p>
+<p></pre></p>
 <h2>Commit the changes</h2>
 <p><b>Commit the changes with a message! <span class="caps">AKA</span> &#8220;ballet stuff&#8221;</b></p>
 <h3><b>Execute:</b></h3>
 <pre class="instructions">git commit -m "[workflows] add a new helloworld file"</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">
-<div class="sample_command">$ git commit -m &#8220;[workflows] add a new helloworld file&#8221;</div>
-<p>On branch master<br />
-nothing to commit, working tree clean<br />
-</pre></p>
+<div class="sample_command">$ git commit -m [workflows] add a new helloworld file </div>
+[master ebebf61] [workflows] add a new helloworld file <br/>
+ 1 file changed, 4 insertions(+) <br/>
+ create mode 100644 sandbox/hello_world.py <br/>
+</pre>
 <h2>Push the changes</h2>
 <h3>Definitions</h3>
 <ul>
@@ -192,14 +197,12 @@ and on github on your own repo.</li>
 <pre class="instructions">git remote -v</pre>
 <h3><b>Output:</b></h3>
 <pre class="sample">
-<div class="sample_command">$ git remote -v</div>
-<p>origin	https://github.com/coderbea/cohort-1.git (fetch)<br />
-origin	https://github.com/coderbea/cohort-1.git (push)<br />
-upstream	https://github.com/polyglotcoders/cohort-1.github (fetch)<br />
-upstream	https://github.com/polyglotcoders/cohort-1.github (push)<br />
-workflows	https://github.com/polyglotcoders/polyglot-workflows.git (fetch)<br />
-workflows	https://github.com/polyglotcoders/polyglot-workflows.git (push)<br />
-</pre></p>
+<div class="sample_command">$ git remote -v </div> <br/>
+origin  https://github.com/coderbea/cohort-1.git (fetch) <br/>
+origin  https://github.com/coderbea/cohort-1.git (push) <br/>
+upstream  https://github.com/polyglotcoders/cohort-1.github (fetch) <br/>
+upstream  https://github.com/polyglotcoders/cohort-1.github (push) <br/>
+</pre>
 <p><b>If you copy paste that <span class="caps">URL</span>, without the .git / .github on the end, it&#8217;ll send you directly<br />
 to the either your own (origin) fork of polyglot&#8217;s repo, or polyglot&#8217;s (upstream) repo.</b></p>
 <p><b>Make sure you push to origin always! You only pull from upstream, but you push all your<br />
