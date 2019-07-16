@@ -1,7 +1,0 @@
-Polyglot Coding Books
--------------
-
-Short Description
------------------
-
-Polyglot Coding seeks to be a one-stop-shop to make a total beginner a capable programmer. We work in small groups to teach beginners how to program and get into the industry. It is non-scaleable, but full of care. Coding is difficult to learn, but with guidance, mentors, and hard work, you can 100% do it. The Polyglot Books are a set of sequential labs to follow that complements the course. It was thoughtfully curated to ensure that Polyglot's tenets of simplicity, conciseness, and thoroughness are followed. In order to get the most of the course, finish all the labs assigned. Failure to accomplish two of the labs results in getting kicked out of the course.
